@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import Nav from "./Components/Nav/Nav";
+import { Switch, Route } from "react-router-dom";
+import Home from "./Components/Home/Home";
+import Post from "./Components/Post/Post";
+import TopicList from "./Components/TopicList/TopicList";
+
 import "./App.css";
 
 class App extends Component {
@@ -7,9 +12,11 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
-        <h1 style={{ padding: "200px 35%" }}>
-          This is where your pages will appear
-        </h1>
+        <Switch>
+          <Route path="/post/:id" component={Post} />
+          <Route path="/topics" component={TopicList} />
+          <Route path="/" component={Home} />
+        </Switch>
       </div>
     );
   }
